@@ -1,0 +1,197 @@
+/* ===========================================================
+   Design-System
+   =========================================================== */
+
+:root {
+  /* =========================================================
+     1) PRIMITIVE – Farbskalen
+     ========================================================= */
+
+  /* Blau (Marke / Standorte) – 600 = Markenton #0428a3 */
+  --blue-50: #eaf0fd;
+  --blue-100: #cbdcfb;
+  --blue-200: #b0d0ff; /* helle Flächen / Page-BG */
+  --blue-300: #7fa8f0;
+  --blue-400: #4a6fd0;
+  --blue-500: #1f44b8;
+  --blue-600: #0428a3; /* ← Markenblau */
+  --blue-700: #032086;
+  --blue-800: #021a6b;
+  --blue-900: #01124a;
+
+  /* Rot (Akzent / aktiv / Artikel-Headings) – 500 = #de002e */
+  --red-50: #fde8ec;
+  --red-100: #fbc4ce;
+  --red-200: #f78ba0;
+  --red-300: #f25571;
+  --red-400: #ec2849;
+  --red-500: #de002e; /* ← Akzentrot */
+  --red-600: #b80026;
+  --red-700: #91001e;
+  --red-800: #6b0016;
+  --red-900: #45000e;
+
+  /* Grün (Walks / KI-Karten / Hervorhebung) – 300 = #c3e882 */
+  --green-50: #f6fcec;
+  --green-100: #e9f7cf;
+  --green-200: #dbf2b3;
+  --green-300: #c3e882; /* ← Markengrün (hell) */
+  --green-400: #a9d65a;
+  --green-500: #8cbf3a;
+  --green-600: #6f9d2c;
+  --green-700: #547820;
+  --green-800: #3a5416;
+  --green-900: #20300b;
+
+  /* Neutralgrau (Text / Borders / Flächen) */
+  --gray-50: #f8f9fa;
+  --gray-100: #f1f3f5;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #adb5bd;
+  --gray-600: #6b7280; /* gedämpfter Text */
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #1a1a1a; /* Standard-Text */
+
+  --white: #ffffff;
+  --black: #000000;
+
+  /* =========================================================
+     2) SEMANTISCH
+     ========================================================= */
+
+  /* Marke */
+  --c-primary: var(--blue-600);
+  --c-primary-hover: var(--blue-700);
+  --c-primary-muted: var(--blue-200);
+
+  --c-accent: var(--red-500);
+  --c-accent-hover: var(--red-600);
+
+  --c-secondary: var(--green-300);
+  --c-secondary-hover: var(--green-400);
+
+  /* Flächen / Hintergründe */
+  --c-bg: var(--white);
+  --c-white: var(--white);
+  --c-bg-primary: var(--blue-200); /* blaue Page-Fläche (Wiki/Listen) */
+  --c-bg-secondary: var(--green-300); /* grüne Flächen (Walks) */
+  --c-bg-subtle: var(--gray-50); /* dezenter Block-Hintergrund */
+
+  /* Text */
+  --c-text: var(--gray-900);
+  --c-text-muted: var(--gray-600);
+  --c-text-on-primary: var(--white); /* Text auf blauen Buttons */
+
+  /* Linien / Rahmen */
+  --c-border: var(--gray-300);
+  --c-border-strong: var(--gray-400);
+
+  /* Statusfarben */
+  --c-success: var(--green-600);
+  --c-danger: var(--red-500);
+  --c-warning: #e8930c; /* Warnungen severity medium (high = --c-accent) */
+
+  /* =========================================================
+     z-index / Layering
+     ========================================================= */
+  --z-map-overlay: 100; /* Karten-Bedienelemente: Suche, Controls, Legenden-Toggle */
+  --z-sheet: 200; /* aufsteigende Bottom-Sheets (POI-Info) */
+  --z-overlay: 300; /* vollflächige Overlays: Warnungen, Info, Klima, Legenden-Drawer, Filter */
+  --z-modal: 400; /* modale Dialoge: AppModal (Sortierung), Abbruch-Dialog */
+  --z-nav: 500; /* Abschluss-Overlay der aktiven Navigation (ganz oben) */
+
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  /* Overlay / Schatten */
+  --c-overlay: rgba(0, 0, 0, 0.4); /* Backdrop für Modals/Sheets */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --shadow-btn: 0 4px 5px 5px rgba(0, 0, 0, 0.5); /* prominenter CTA-Button (Figma) */
+
+  /* aktiver Artikel-Typ (Standort=blau / Walk=grün) – per Klasse umschaltbar */
+  --c-theme: var(--c-primary);
+
+  /* =========================================================
+     Typografie
+     ========================================================= */
+  --ff-base: 'Figtree Variable', sans-serif;
+  --ff-display: 'Oswald Variable', sans-serif;
+
+  /* Schriftgrößen (rem, 1rem = 16px) */
+  --fs-xs: 0.75rem; /* 12px */
+  --fs-sm: 0.875rem; /* 14px */
+  --fs-md: 1rem; /* 16px – Basis */
+  --fs-lg: 1.25rem; /* 20px */
+  --fs-xl: 1.75rem; /* 28px */
+  --fs-2xl: 2rem; /* 32px */
+
+  /* Schriftgewichte */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* =========================================================
+     Abstände & Form
+     ========================================================= */
+  --sp-xs: 0.25rem; /* 4px  */
+  --sp-sm: 0.5rem; /* 8px  */
+  --sp-md: 0.625rem; /* 10px – Standard */
+  --sp-lg: 0.75rem; /* 12px */
+  --sp-xl: 1.25rem; /* 20px */
+
+  --r-sm: 6px;
+  --r-md: 12px; /* Karten */
+  --r-lg: 20px;
+  --r-pill: 999px; /* runde Buttons / Tabs / Pills */
+  --r-card: var(--r-md); /* Alias – bestehende Nutzungen bleiben gültig */
+}
+
+/* Artikel-Theme umschalten: <div class="theme-walk"> … </div> */
+.theme-walk {
+  --c-theme: var(--c-secondary);
+}
+
+/* ===========================================================
+   Reset & Basis
+   =========================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: var(--ff-base);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-regular);
+  color: var(--c-text);
+}
+
+span.material-symbols-outlined {
+  user-select: none;
+}
+
+/* ===========================================================
+   Globale Hilfsklassen
+   =========================================================== */
+
+.flex-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}

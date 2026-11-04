@@ -1,0 +1,60 @@
+<script setup>
+import { computed } from 'vue'
+import FavHeart from '@/components/ui/FavHeart.vue'
+const props = defineProps({
+  topic: { type: Object, required: true },
+  fav: { type: Boolean, default: false },
+  to: { type: [String, Object], default: null },
+})
+const emit = defineEmits(['toggle-fav'])
+
+const target = computed(() => props.to ?? `/deepdive/${props.topic.id}`)
+</script>
+
+<template>
+  <li class="row">
+    <RouterLink class="card-link" :to="target">
+      <div class="card">
+        <div class="card-text">
+          <strong>{{ topic.name }}</strong>
+        </div>
+      </div>
+    </RouterLink>
+
+    <FavHeart :model-value="fav" @update:model-value="emit('toggle-fav')" class="fav-heart" />
+  </li>
+</template>
+
+<style scoped>
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--sp-md);
+}
+
+.card-link {
+  flex: 1 1 0;
+}
+
+.card {
+  background: var(--c-bg-primary);
+  border-radius: var(--r-card);
+  padding: 12px 18px;
+  cursor: pointer;
+
+  .card-text {
+    font-weight: var(--fw-light);
+    line-height: 26px;
+
+    strong {
+      font-weight: var(--fw-bold);
+    }
+  }
+}
+
+.fav-heart {
+  --fav-color: var(--c-primary);
+  --fav-shadow: none;
+}
+</style>
